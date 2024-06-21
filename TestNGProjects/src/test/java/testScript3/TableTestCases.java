@@ -31,6 +31,7 @@ public class TableTestCases extends Base {
 		for(WebElement lists:webtable2)
 		{
 			System.out.println(lists.getText());
+			System.out.println();
 		}
 		System.out.println();
 	}
