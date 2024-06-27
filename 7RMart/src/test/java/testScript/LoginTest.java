@@ -21,9 +21,9 @@ public class LoginTest extends Base{
 				
 	}
 	@Test
-	public void verifyTheUserIsAbleToLoginUsingInValidUsername()
+	public void verifyTheUserIsAbleToLoginUsingInValidUsernameandValidPassword()
 	{
-	String usernamevalue ="admin1234";
+	String usernamevalue ="123";
 	String passwordvalue = "admin";
 	LoginPage loginpage = new LoginPage(driver);
 	loginpage.enterUserNameOnUserNameField(usernamevalue); 
@@ -31,10 +31,10 @@ public class LoginTest extends Base{
 	loginpage.clickOnSignInButton();
 	
 	boolean ishomepageavailable = loginpage.isHomePageLoaded();
-	assertTrue(ishomepageavailable,"Page is not loaded when user gives valid credentials");
+	assertTrue(ishomepageavailable,"Page is not loaded when user gives invalid username and valid password");
 	}
 	@Test
-	public void verifyTheUserIsAbleToLoginUsingInValidPassword()
+	public void verifyTheUserIsAbleToLoginUsingValidUsernameInValidPassword()
 	{
 	String usernamevalue ="admin";
 	String passwordvalue = "admin1";
@@ -44,8 +44,20 @@ public class LoginTest extends Base{
 	loginpage.clickOnSignInButton();
 	
 	boolean ishomepageavailable = loginpage.isHomePageLoaded();
-	assertTrue(ishomepageavailable,"Page is not loaded when user gives valid credentials");
+	assertTrue(ishomepageavailable,"Page is not loaded when user gives validusername and invalid password");
 	}
+	@Test
+	public void verifyTheUserIsAbleToLoginUsingInValidUsernameandInvalidPassword()
+	{
+	String usernamevalue ="123";
+	String passwordvalue = "admin12";
+	LoginPage loginpage = new LoginPage(driver);
+	loginpage.enterUserNameOnUserNameField(usernamevalue); 
+	loginpage.enterPasswordOnPasswordField(passwordvalue);
+	loginpage.clickOnSignInButton();
 	
+	boolean ishomepageavailable = loginpage.isHomePageLoaded();
+	assertTrue(ishomepageavailable,"Page is not loaded when user gives invalid username and invalid password");
+	}
 	
 }
