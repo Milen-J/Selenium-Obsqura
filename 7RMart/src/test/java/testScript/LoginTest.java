@@ -44,7 +44,7 @@ public class LoginTest extends Base{
 	loginpage.clickOnSignInButton();
 	
 	boolean ishomepageavailable = loginpage.isHomePageLoaded();
-	assertTrue(ishomepageavailable,"Page is not loaded when user gives validusername and invalid password");
+	assertTrue(ishomepageavailable,"Page is not loaded when user gives valid username and invalid password");
 	}
 	@Test
 	public void verifyTheUserIsAbleToLoginUsingInValidUsernameandInvalidPassword()

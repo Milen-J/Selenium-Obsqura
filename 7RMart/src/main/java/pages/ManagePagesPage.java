@@ -22,6 +22,7 @@ public class ManagePagesPage {
 	@FindBy(xpath="//button[@class='btn btn-danger']")private WebElement savebutton;
 	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[1]/div/a")private WebElement moreinfo;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertbox;
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement redalertbox;
 	
 	public void moreinfonav()
 	{
@@ -58,8 +59,7 @@ public class ManagePagesPage {
 	
 	public boolean isAlertBoxDisplayed()
 	{
-		return alertbox.isDisplayed();
-		
+		return alertbox.isDisplayed();			
 		
 	}
 

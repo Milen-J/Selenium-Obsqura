@@ -21,12 +21,9 @@ public class ManagePagesTest extends Base{
 		loginpage.clickOnSignInButton();
 		
 
-		//driver.navigate().to("https://groceryapp.uniqassosiates.com/admin/pages/add");
-		
-		
-		String titlevalue ="Spices132";
+		String titlevalue ="Spices1321";
 		String descriptionvalue="All types of Spices12";
-		String pagenamevalue="Biriyani Spices212";
+		String pagenamevalue="Biriyani Spices2121";
 		
 		ManagePagesPage managepagespage = new ManagePagesPage(driver);
 		managepagespage.moreinfonav();
@@ -44,8 +41,10 @@ public class ManagePagesTest extends Base{
 		
 		
 		boolean isalertboxdisplayed = managepagespage.isAlertBoxDisplayed();
-		assertTrue(isalertboxdisplayed,"Alert box is not displayed");
+		assertTrue(isalertboxdisplayed,"Alert box is not displayed.");
 		
+		
+				
 	}
 
 }
