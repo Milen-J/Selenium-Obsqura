@@ -27,8 +27,6 @@ public class ManagePagesTest extends Base{
 		
 		ManagePagesPage managepagespage = new ManagePagesPage(driver);
 		managepagespage.moreinfonav();
-		boolean islistpagedisplayed = managepagespage.isListPageDisplayed();
-		assertTrue(islistpagedisplayed,"Page is not loaded");
 		
 		
 		managepagespage.newbutton();
@@ -38,6 +36,8 @@ public class ManagePagesTest extends Base{
 		managepagespage.enterPageNameField(pagenamevalue);
 		managepagespage.clicksaveButton();
 		
+		boolean islistpagedisplayed = managepagespage.isListPageDisplayed();
+		assertTrue(islistpagedisplayed,"Page is not loaded");
 		
 		
 		boolean isalertboxdisplayed = managepagespage.isAlertBoxDisplayed();
