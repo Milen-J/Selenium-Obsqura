@@ -17,7 +17,7 @@ public class AdminUsersAddPage {
 		PageFactory.initElements(driver,this);
 	}
 	
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[2]/div/a")private WebElement adminmoreinfo ;
+	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[2]/div/a/i")private WebElement adminmoreinfo ;
 	@FindBy(xpath="//a[@class = 'btn btn-rounded btn-primary']")private WebElement adminsearch ;
 	@FindBy(xpath="/html/body/div/div[1]/section/div[1]/a[1]")private WebElement newadminbtn;
 	@FindBy(xpath="//input[@id='username']")private WebElement username ;
@@ -25,7 +25,7 @@ public class AdminUsersAddPage {
 	@FindBy(xpath="//select[@id='user_type']")private WebElement usertype;
 	@FindBy(xpath="//button[@name='Create']")private WebElement savebtn;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertnewuser;
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement redalert;
+	
 	@FindBy(xpath="//*[@id=\"adddiv\"]/div/div/div/form/div[2]/a")private WebElement reset;
 	
 	public void adminMoreInfo()
@@ -35,7 +35,7 @@ public class AdminUsersAddPage {
 	
 	public boolean isAdminPageDisplayed()
 	{
-		return adminsearch.isDisplayed();
+		return newadminbtn.isDisplayed();
 	}
 	
 	public void addNewUser()
@@ -59,12 +59,12 @@ public class AdminUsersAddPage {
 		select.selectByValue("staff");
 		
 		savebtn.click();
-		if(redalert.isDisplayed())
+		/*if(redalert.isDisplayed())
 		{
 			reset.click();
 			newadminbtn.click();
 			
-		}
+		}*/
 	}
 	public boolean isAlertForNewAdminSuccessDisplayed()
 	{

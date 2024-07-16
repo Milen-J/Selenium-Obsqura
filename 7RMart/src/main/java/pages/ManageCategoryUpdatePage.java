@@ -18,13 +18,16 @@ public class ManageCategoryUpdatePage {
 	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[5]/div/a")private WebElement categorymoreinfo ;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")private WebElement newbtn;
 	@FindBy(xpath="/html/body/div/div[1]/section/div[4]/div[2]/table/tbody/tr[2]/td[4]/a[1]/i")private WebElement actionclick ;
-	@FindBy(xpath="//input[@value='MobilesMobile']")private WebElement categoryinput;
+	@FindBy(xpath="//input[@value='Cars100']")private WebElement categoryinput;
 	@FindBy(xpath="//*[@id=\"ms-grp_id\"]/div[1]/ul")private WebElement select1 ;
-	@FindBy(xpath="//*[@id=\"ms-grp_id\"]/div[2]/ul")private WebElement discount2;
+	@FindBy(xpath="//li[@id='134-selectable']")private WebElement discount2;
+	@FindBy(xpath="//*[@id=\"ms-grp_id\"]/div[2]/ul")private WebElement select2;
+	@FindBy(xpath="//*[@id=\"main_img\"]'")private WebElement image;
 	@FindBy(xpath="//*[@id=\"form\"]/div/div[4]/div[1]/label[2]/input")private WebElement topmenuradiobtnyes ;
 	@FindBy(xpath="//*[@id=\"form\"]/div/div[4]/div[1]/label[3]/input")private WebElement topmenuradiobtnno;
 	@FindBy(xpath="//*[@id=\"form\"]/div/div[4]/div[2]/label[2]/input")private WebElement leftmenuradiobtnyes;
 	@FindBy(xpath="//*[@id=\"form\"]/div/div[4]/div[2]/label[3]")private WebElement leftmenuradiobtnno;
+	
 	@FindBy(xpath="//button[@name='update']")private WebElement updatebtn ;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement greenalert;
 	
@@ -51,7 +54,22 @@ public class ManageCategoryUpdatePage {
 	{
 		Actions action=new Actions(driver);
 		action.moveToElement(select1).build().perform();
-		action.doubleClick(select1).build().perform();
+		String s = select1.getText();
+
+		if(select1.equals(s))
+		{
+			
+		discount2.click();
+		}
+		if(select2.equals(s))
+		{
+			discount2.click();
+		}
+				
+	}
+	public void imageUpload()
+	{
+		image.sendKeys("//input[@name='main_img']");
 	}
 	public void topMenuRadiobtn()
 	{
@@ -66,9 +84,14 @@ public class ManageCategoryUpdatePage {
 		{
 			leftmenuradiobtnno.click();
 		}
+		else
+		{
+			leftmenuradiobtnyes.click();
+		}
 	}
 	public void updateBtn()
 	{
+		
 		updatebtn.click();
 	}
 	public boolean greenalertDisplayed()

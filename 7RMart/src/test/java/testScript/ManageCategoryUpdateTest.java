@@ -19,19 +19,21 @@ public class ManageCategoryUpdateTest extends Base {
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.clickOnSignInButton();
 		
-		String categoryvalue="Mobile";
+		String categoryvalue="Cars100";
 				
 		ManageCategoryUpdatePage managecategoryupdate = new ManageCategoryUpdatePage(driver);
 		managecategoryupdate.mgeCategory();
 		managecategoryupdate.clickOnAction();
 		managecategoryupdate.enterDetails(categoryvalue);
 		managecategoryupdate.dragAndDropGroups();
+		managecategoryupdate.imageUpload();
 		managecategoryupdate.topMenuRadiobtn();
 		managecategoryupdate.leftMenuRadioBtn();
 		managecategoryupdate.updateBtn();
 		
 		boolean iscategorypagedisplayed = managecategoryupdate.isCategoryPageDisplayed();
 		assertTrue(iscategorypagedisplayed,"Category page not loaded.");
+		
 		boolean greenalertdisplayed = managecategoryupdate.greenalertDisplayed();
 		assertTrue(greenalertdisplayed,"Updation not successful.");
 		}

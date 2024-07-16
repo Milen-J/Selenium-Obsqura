@@ -18,6 +18,8 @@ public class LoginPage {
 	@FindBy(xpath="//input[@name='password']")private WebElement password;
 	@FindBy(xpath="//button[text()='Sign In']")private WebElement signIn;
 	@FindBy(xpath="//p[text()='Dashboard']")private WebElement dashboardvalue;
+	//@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement redalert;
+	
 	
 	public void enterUserNameOnUserNameField(String usernamevalue)
 	{
@@ -31,10 +33,21 @@ public class LoginPage {
 	public void clickOnSignInButton()
 	{
 		signIn.click();
+		/*if(redalert.isDisplayed())
+		{
+			username.clear();
+			password.clear();
+		}*/
+		
 	}
-	public boolean isHomePageLoaded()
+	
+	
+	/*public boolean isHomePageLoaded()
 	{
 		return dashboardvalue.isDisplayed();
 		
-	}
+	}*/
+	/*public boolean isRedAlertDisplayed() {
+		return redalert.isDisplayed();
+	}*/
 }

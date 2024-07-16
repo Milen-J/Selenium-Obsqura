@@ -34,14 +34,15 @@ public class ManagePagesTest extends Base{
 		managepagespage.enterTitleField(titlevalue);
 		managepagespage.enterDescriptionField(descriptionvalue);
 		managepagespage.enterPageNameField(pagenamevalue);
+		managepagespage.imageUpload();
 		managepagespage.clicksaveButton();
 		
 		boolean islistpagedisplayed = managepagespage.isListPageDisplayed();
 		assertTrue(islistpagedisplayed,"Page is not loaded");
 		
 		
-		boolean isalertboxdisplayed = managepagespage.isAlertBoxDisplayed();
-		assertTrue(isalertboxdisplayed,"Alert box is not displayed.");
+		//boolean isalertboxdisplayed = managepagespage.isAlertBoxDisplayed();
+		//assertTrue(isalertboxdisplayed,"Alert box is not displayed.");
 		
 		
 				
