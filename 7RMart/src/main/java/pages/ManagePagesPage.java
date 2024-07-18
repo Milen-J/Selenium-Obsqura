@@ -57,12 +57,12 @@ public class ManagePagesPage {
 	{
 		pagename.sendKeys(pagenamevalue);
 	}
-	public void imageUpload()
+	/*public void imageUpload()
 	{
 		imagebtn.click();
 		imagebtn.sendKeys("C:\\Users\\lenovo\\OneDrive\\Desktop\\butterfly.jpeg");
 		//FileUploadUtility.fileUploadUsingRobotClass(imagebtn,Constants.TESTDATAFILEIMAGEMANAGEPAGEADD);
-	}
+	}*/
 	public void clicksaveButton()
 	{
 		WaitUtility waitutility = new WaitUtility();

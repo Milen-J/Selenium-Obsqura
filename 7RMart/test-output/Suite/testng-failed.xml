@@ -6,13 +6,13 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testScript.AdminUsersAddTest">
+      <class name="testScript.LoginTest">
         <methods>
-          <include name="baseGrocery"/>
-          <include name="quit"/>
-          <include name="verifyUserIsAbleToAddNewAdminUser"/>
+          <include name="initializeBrowser"/>
+          <include name="QuitAndClose"/>
+          <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"/>
         </methods>
-      </class> <!-- testScript.AdminUsersAddTest -->
+      </class> <!-- testScript.LoginTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

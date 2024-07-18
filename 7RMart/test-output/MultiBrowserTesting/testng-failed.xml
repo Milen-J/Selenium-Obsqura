@@ -4,30 +4,17 @@
   <listeners>
     <listener class-name="generate_report.Listeners"/>
   </listeners>
-  <test thread-count="2" name="ChromeTest(failed)">
-    <parameter name="browser" value="Chrome"/>
-    <classes>
-      <class name="testScript.LoginTest">
-        <methods>
-          <include name="baseGrocery"/>
-          <include name="quit"/>
-          <include name="verifyTheUserIsAbleToLoginUsingInValidUsernameandValidPassword"/>
-          <include name="verifyTheUserIsAbleToLoginUsingInValidUsernameandInvalidPassword"/>
-          <include name="verifyTheUserIsAbleToLoginUsingValidUsernameInValidPassword"/>
-        </methods>
-      </class> <!-- testScript.LoginTest -->
-    </classes>
-  </test> <!-- ChromeTest(failed) -->
   <test thread-count="2" name="EdgeTest(failed)">
     <parameter name="browser" value="Edge"/>
     <classes>
       <class name="testScript.LoginTest">
         <methods>
-          <include name="baseGrocery"/>
-          <include name="quit"/>
+          <include name="initializeBrowser"/>
           <include name="verifyTheUserIsAbleToLoginUsingInValidUsernameandValidPassword"/>
           <include name="verifyTheUserIsAbleToLoginUsingInValidUsernameandInvalidPassword"/>
+          <include name="QuitAndClose"/>
           <include name="verifyTheUserIsAbleToLoginUsingValidUsernameInValidPassword"/>
+          <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"/>
         </methods>
       </class> <!-- testScript.LoginTest -->
     </classes>

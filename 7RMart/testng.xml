@@ -8,9 +8,9 @@
   <test thread-count="5" name="Test">
     <classes>
       
-      <class name="testScript.AdminUsersAddTest">
+      <class name="testScript.LoginTest">
       <methods>
-      <include  name ="verifyUserIsAbleToAddNewAdminUser">
+      <include  name ="verifyTheUserIsAbleToLoginUsingValidCredentials">
       
       </include>
       </methods>

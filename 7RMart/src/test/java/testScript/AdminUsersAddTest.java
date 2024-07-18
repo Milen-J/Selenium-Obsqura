@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import basePackage.Base;
 import pages.AdminUsersAddPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -25,8 +26,8 @@ public class AdminUsersAddTest extends Base {
 		loginpage.clickOnSignInButton();
 		
 		
-		String adminusernamevalue = ExcelUtility.getStringData(1, 0,"AdminUsersAddTest" );
-		String adminpasswordvalue = ExcelUtility.getStringData(1, 1,"AdminUsersAddTest");
+		String adminusernamevalue = ExcelUtility.getStringData(1, 0,"AdminUsersAdd" );
+		String adminpasswordvalue = ExcelUtility.getStringData(1, 1,"AdminUsersAdd");
 			
 			//String adminusernamevalue = "Varun12";
 			//String adminpasswordvalue = "Varun1";

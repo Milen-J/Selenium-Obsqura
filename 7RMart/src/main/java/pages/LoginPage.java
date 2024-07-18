@@ -42,11 +42,11 @@ public class LoginPage {
 	}
 	
 	
-	/*public boolean isHomePageLoaded()
+	public boolean isHomePageLoaded()
 	{
 		return dashboardvalue.isDisplayed();
 		
-	}*/
+	}
 	/*public boolean isRedAlertDisplayed() {
 		return redalert.isDisplayed();
 	}*/

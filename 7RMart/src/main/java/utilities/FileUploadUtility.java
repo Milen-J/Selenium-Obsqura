@@ -22,7 +22,7 @@ public class FileUploadUtility {
 	}
 	public void fileUploadUsingRobotClass(WebElement element,String path) throws AWTException
 	{
-		StringSelection s = new StringSelection("path");
+		StringSelection s = new StringSelection("C:\\Users\\lenovo\\OneDrive\\Desktop\\butterfly.jpeg");
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
 		Robot r = new Robot();
 		r.delay(250);

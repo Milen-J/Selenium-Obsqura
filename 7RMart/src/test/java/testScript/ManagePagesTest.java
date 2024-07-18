@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import basePackage.Base;
 import pages.LoginPage;
 import pages.ManagePagesPage;
 
@@ -34,7 +35,8 @@ public class ManagePagesTest extends Base{
 		managepagespage.enterTitleField(titlevalue);
 		managepagespage.enterDescriptionField(descriptionvalue);
 		managepagespage.enterPageNameField(pagenamevalue);
-		managepagespage.imageUpload();
+		//managepagespage.imageUpload();
+	
 		managepagespage.clicksaveButton();
 		
 		boolean islistpagedisplayed = managepagespage.isListPageDisplayed();

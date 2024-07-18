@@ -4,6 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
+import basePackage.Base;
 import pages.LoginPage;
 import pages.MgePagesSearchAndDeletePage;
 
