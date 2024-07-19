@@ -42,7 +42,7 @@ public class LoginPage {
 	
 	public boolean isHomePageLoaded()
 	{
-		boolean ishomepagedisplayed = webelementutility.isElementDisplayed(dashboardvalue);
+		boolean ishomepagedisplayed = webelementutility.isElementDisplayed(dashboardvalue);//calling isdisplayed
 		return ishomepagedisplayed; 
 		
 	}
