@@ -5,10 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WebElementUtilities;
+
 public class ManageNewsAddPage {
 	
 	WebDriver driver;
-	
+	WebElementUtilities webelementutility = new WebElementUtilities();
 	public ManageNewsAddPage(WebDriver driver)
 	{
 		this.driver=driver;

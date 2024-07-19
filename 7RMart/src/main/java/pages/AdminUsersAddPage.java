@@ -6,9 +6,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+import utilities.WebElementUtilities;
+
 public class AdminUsersAddPage {
 	
 	WebDriver driver;
+	
+	WebElementUtilities webelementutility = new WebElementUtilities();
+	PageUtility pageutility=new PageUtility();
 	
 	public AdminUsersAddPage(WebDriver driver)
 	{
@@ -31,44 +37,21 @@ public class AdminUsersAddPage {
 	public void adminMoreInfo()
 	{
 		adminmoreinfo.click();
-	}
-	
-	public boolean isAdminPageDisplayed()
-	{
-		return newadminbtn.isDisplayed();
-	}
-	
-	public void addNewUser()
-	
-	{
+		webelementutility.isElementDisplayed(newadminbtn);
 		newadminbtn.click();
-		
+		webelementutility.isElementDisplayed(adminsearch);
 	}
 	
-	public boolean isNewAdminPageDisplayed()
-	{
-		return newadminbtn.isDisplayed();
-	}
-	
-	public void addUsername(String adminusernamevalue,String adminpasswordvalue)
+	public void addUsername(String adminusernamevalue,String adminpasswordvalue,String usertype1)
 
 	{
 		username.sendKeys(adminusernamevalue);
 		password.sendKeys(adminpasswordvalue);
-		Select select = new Select(usertype);
-		select.selectByValue("staff");
-		
+		pageutility.selectByValue(usertype, usertype1);
 		savebtn.click();
-		/*if(redalert.isDisplayed())
-		{
-			reset.click();
-			newadminbtn.click();
-			
-		}*/
 	}
-	public boolean isAlertForNewAdminSuccessDisplayed()
+	public void isAlertForNewAdminSuccessDisplayed()
 	{
-		return alertnewuser.isDisplayed();
+		boolean isgreenalertdisplayed = webelementutility.isElementDisplayed(alertnewuser);
 	}
-
 }

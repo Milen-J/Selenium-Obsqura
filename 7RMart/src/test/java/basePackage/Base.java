@@ -59,7 +59,7 @@ public class Base{
 		{
 			takeScreenshots(result);
 		}
-		driver.quit();
+		//driver.quit();
 	}
 	public void takeScreenshots(ITestResult result) throws IOException
 	{

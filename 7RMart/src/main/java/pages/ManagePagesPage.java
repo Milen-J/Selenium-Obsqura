@@ -9,11 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 import constants.Constants;
 import utilities.FileUploadUtility;
 import utilities.WaitUtility;
+import utilities.WebElementUtilities;
 
 public class ManagePagesPage {
 	
 	
 	WebDriver driver;
+	WebElementUtilities webelementutility = new WebElementUtilities();
 	public ManagePagesPage(WebDriver driver)
 	{
 		this.driver = driver;

@@ -10,7 +10,7 @@ public class PageUtility
 	public void selectByValue(WebElement element,String value)
 	{
 	Select select =new Select(element);//no need to create object each time for eachtestcases-for action class,alert and all
-	select.selectByValue(value);
+	select.selectByIndex(1);
 		
 	}
 //(int index) ,call in page

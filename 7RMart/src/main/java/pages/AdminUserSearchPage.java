@@ -6,9 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.WebElementUtilities;
+
 public class AdminUserSearchPage {
 	
 	WebDriver driver;
+	WebElementUtilities webelementutility = new WebElementUtilities();
 	public AdminUserSearchPage(WebDriver driver)
 	{
 		this.driver = driver;

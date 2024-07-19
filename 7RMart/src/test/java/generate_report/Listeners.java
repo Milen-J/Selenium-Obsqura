@@ -19,7 +19,7 @@ public class Listeners implements ITestListener//ITestListener is an interface -
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
 
-public void onTestStart(ITestResult result) {   //listens to console get the testcase name and add to report
+public void onTestStart(ITestResult result) {   //listens to console get the testcase name and add to the report
 
 	ITestListener.super.onTestStart(result);
 	test = extent.createTest(result.getMethod().getMethodName());

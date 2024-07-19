@@ -6,10 +6,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WebElementUtilities;
+
 public class ManageCategoryUpdatePage {
 	
 	WebDriver driver;
-	
+	WebElementUtilities webelementutility = new WebElementUtilities();
 	public ManageCategoryUpdatePage(WebDriver driver)
 	{
 		this.driver=driver;

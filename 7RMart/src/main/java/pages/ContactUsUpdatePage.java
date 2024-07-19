@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WebElementUtilities;
+
 public class ContactUsUpdatePage {
 	WebDriver driver;
-	
+	WebElementUtilities webelementutility = new WebElementUtilities();
 	public ContactUsUpdatePage(WebDriver driver)
 	{
 		this.driver=driver;
