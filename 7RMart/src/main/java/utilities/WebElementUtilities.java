@@ -2,6 +2,7 @@ package utilities;
 
 import org.openqa.selenium.WebElement;
 
+
 public class WebElementUtilities {
 	public boolean isElementDisplayed(WebElement element)
 	{

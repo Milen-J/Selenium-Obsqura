@@ -86,7 +86,7 @@ public class LoginTest extends Base{
 		loginpage.enterPasswordOnPasswordField(password);
 		loginpage.clickOnSignInButton();
 		
-		boolean actualresultlogin = loginpage.isHomePageLoaded();//used webelement utility
+		boolean actualresultlogin = loginpage.isHomePageLoaded();//used webelement utility.
 	
 		
 	}
