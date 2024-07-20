@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import basePackage.Base;
-import pages.AdminUsersAddPage;
+import pages.AdminUsersAddNewUserPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -30,7 +30,7 @@ public class AdminUsersAddTest extends Base {
 		String usertype1 =	ExcelUtility.getStringData(1, 2,"AdminUsersAdd");
 		
 			
-		AdminUsersAddPage adminuseraddpage = new AdminUsersAddPage(driver);
+		AdminUsersAddNewUserPage adminuseraddpage = new AdminUsersAddNewUserPage(driver);
 		adminuseraddpage.adminMoreInfo();
 		adminuseraddpage.addUsername(adminusernamevalue, adminpasswordvalue, usertype1);
 			

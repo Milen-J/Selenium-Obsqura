@@ -9,14 +9,14 @@ import org.openqa.selenium.support.ui.Select;
 import utilities.PageUtility;
 import utilities.WebElementUtilities;
 
-public class AdminUsersAddPage {
+public class AdminUsersAddNewUserPage {
 	
 	WebDriver driver;
 	
 	WebElementUtilities webelementutility = new WebElementUtilities();
 	PageUtility pageutility=new PageUtility();
 	
-	public AdminUsersAddPage(WebDriver driver)
+	public AdminUsersAddNewUserPage(WebDriver driver)
 	{
 		
 		this.driver= driver;
