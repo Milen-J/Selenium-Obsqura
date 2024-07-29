@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import basePackage.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AdminUsersAddNewUserPage;
@@ -28,11 +28,6 @@ public class AdminUsersAddNewUserTest extends Base {
 		loginpage.clickOnSignInButton();
 		
 		
-		//String adminusernamevalue = ExcelUtility.getStringData(1, 0,"AdminUsersAdd" );
-		//String adminpasswordvalue = ExcelUtility.getStringData(1, 1,"AdminUsersAdd");
-		//String usertype1 =	ExcelUtility.getStringData(1, 2,"AdminUsersAdd");
-		
-			
 		AdminUsersAddNewUserPage adminuseraddpage = new AdminUsersAddNewUserPage(driver);
 		adminuseraddpage.adminMoreInfo();
 		
@@ -51,7 +46,7 @@ public class AdminUsersAddNewUserTest extends Base {
 		
 		String usertype=ExcelUtility.getStringData(1, 2,Constants.ADD_USER_IN_ADMIN_USER_DATA);
 		
-		adminuseraddpage.addUsername(usernamevalue, passwordvalue, usertype);
+		adminuseraddpage.addUsername(username1, password1, usertype);
 		
 		boolean is_green_alert_visible=adminuseraddpage.isAlertForNewAdminSuccessDisplayed();
 		

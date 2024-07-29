@@ -26,9 +26,9 @@ public class AdminUsersAddNewUserPage {
 	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[2]/div/a/i")private WebElement adminmoreinfo ;
 	@FindBy(xpath="//a[@class = 'btn btn-rounded btn-primary']")private WebElement adminsearch ;
 	@FindBy(xpath="/html/body/div/div[1]/section/div[1]/a[1]")private WebElement newadminbtn;
-	@FindBy(xpath="//input[@id='username']")private WebElement username ;
-	@FindBy(xpath="//input[@id='password']")private WebElement password ;
-	@FindBy(xpath="//select[@id='user_type']")private WebElement usertype;
+	@FindBy(xpath="//input[@id='username']")private WebElement usernamefield ;
+	@FindBy(xpath="//input[@id='password']")private WebElement passwordfield;
+	@FindBy(xpath="//select[@id='user_type']")private WebElement dropdownforusertype;
 	@FindBy(xpath="//button[@name='Create']")private WebElement savebtn;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertnewuser;
 	
@@ -37,21 +37,39 @@ public class AdminUsersAddNewUserPage {
 	public void adminMoreInfo()
 	{
 		adminmoreinfo.click();
-		webelementutility.isElementDisplayed(newadminbtn);
-		newadminbtn.click();
-		webelementutility.isElementDisplayed(adminsearch);
 	}
 	
-	public void addUsername(String adminusernamevalue,String adminpasswordvalue,String usertype1)
+	public boolean isAdminUserPageDisplayed()
+	{
+		boolean is_admin_page_displayed=webelementutility.isElementDisplayed(newadminbtn);
+		return is_admin_page_displayed;
+		
+	}
+	public void newAdminButtonClick()
+	{
+	
+		newadminbtn.click();
+	}
+	public boolean isSearchButtonDisplayed()
+	{
+		boolean is_search_button_displayed=webelementutility.isElementDisplayed(adminsearch);;
+		return is_search_button_displayed;
+		
+	}
+		
+	
+	public void addUsername(String username1,String password1,String usertype)
 
 	{
-		username.sendKeys(adminusernamevalue);
-		password.sendKeys(adminpasswordvalue);
-		pageutility.selectByValue(usertype, usertype1);
+		usernamefield.sendKeys(username1);
+		passwordfield.sendKeys(password1);
+		pageutility.selectByValue(dropdownforusertype, usertype);
 		savebtn.click();
 	}
-	public void isAlertForNewAdminSuccessDisplayed()
+	
+	public boolean isAlertForNewAdminSuccessDisplayed()
 	{
-		boolean isgreenalertdisplayed = webelementutility.isElementDisplayed(alertnewuser);
+		boolean is_green_alert_displayed=webelementutility.isElementDisplayed(adminsearch);
+		return is_green_alert_displayed;
 	}
 }

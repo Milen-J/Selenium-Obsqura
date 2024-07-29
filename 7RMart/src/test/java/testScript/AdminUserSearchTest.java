@@ -4,7 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
-import basePackage.Base;
+import automation_core.Base;
 import pages.AdminUserSearchPage;
 import pages.LoginPage;
 
@@ -26,6 +26,10 @@ public class AdminUserSearchTest extends Base{
 		
 		boolean isadminpagedisplayed = adminsearch.isadminUsersPageDisplayed();
 		assertTrue(isadminpagedisplayed,"Admin user page not displayed.");
+	
+		
+	
+	
 	}
 
 }

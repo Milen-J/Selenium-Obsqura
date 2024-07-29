@@ -4,7 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
-import basePackage.Base;
+import automation_core.Base;
 import pages.LoginPage;
 import pages.ManageNewsAddPage;
 
@@ -32,7 +32,7 @@ public class ManageNewsAddTest extends Base {
 		assertTrue(isnewspagedisplayed,"News page is not loaded.");
 		
 		boolean isgreenalertdisplayed = addnews.newsAlertSuccess();
-		assertTrue(isgreenalertdisplayed,"News not added.");
+		assertTrue(isgreenalertdisplayed,"News notadded.");
 	}
 
 }

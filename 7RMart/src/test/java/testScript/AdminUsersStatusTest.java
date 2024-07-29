@@ -4,7 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
-import basePackage.Base;
+import automation_core.Base;
 import pages.AdminUsersStatusPage;
 import pages.LoginPage;
 

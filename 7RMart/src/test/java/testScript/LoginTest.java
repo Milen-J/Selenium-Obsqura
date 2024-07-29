@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import basePackage.Base;
+import automation_core.Base;
 import dataProviders.DataProviders;
 import pages.LoginPage;
 import utilities.ExcelUtility;

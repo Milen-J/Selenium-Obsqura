@@ -19,7 +19,8 @@ public class Listeners implements ITestListener//ITestListener is an interface -
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
 
-public void onTestStart(ITestResult result) {   //listens to console get the testcase name and add to the report
+public void onTestStart(ITestResult result) 
+{   //listens to console get the testcase name and add to the report
 
 	ITestListener.super.onTestStart(result);
 	test = extent.createTest(result.getMethod().getMethodName());
@@ -63,7 +64,7 @@ public void onTestFailure(ITestResult result) { //listens to console and passed 
  		} catch (Exception e) { 
  		} 
  	} 
- public void onTestSkipped(ITestResult result) { //skipped results are added to the report
+ 	public void onTestSkipped(ITestResult result) { //skipped results are added to the report
  		ITestListener.super.onTestSkipped(result); 
  		extentTest.get().log(Status.SKIP, "Test Skipped"); 
  		String testMethodName = result.getMethod().getMethodName(); 
