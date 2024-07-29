@@ -63,7 +63,7 @@ public class AdminUsersAddNewUserPage {
 	{
 		usernamefield.sendKeys(username1);
 		passwordfield.sendKeys(password1);
-		pageutility.selectByValue(dropdownforusertype, usertype);
+		pageutility.selectByValue(dropdownforusertype, usertype);//new
 		savebtn.click();
 	}
 	
