@@ -58,15 +58,17 @@ public class AdminUsersAddNewUserPage {
 	}
 		
 	
-	public void addUsername(String username1,String password1,String usertype)
+	public void addUsername(String username,String usertype)
 
 	{
-		usernamefield.sendKeys(username1);
-		passwordfield.sendKeys(password1);
-		pageutility.selectByValue(dropdownforusertype, usertype);//new
+		usernamefield.sendKeys(username);
+		pageutility.selectByValue(dropdownforusertype, usertype);
+		//savebtn.click();
+	}
+	public void clickSave()
+	{
 		savebtn.click();
 	}
-	
 	public boolean isAlertForNewAdminSuccessDisplayed()
 	{
 		boolean is_green_alert_displayed=webelementutility.isElementDisplayed(adminsearch);

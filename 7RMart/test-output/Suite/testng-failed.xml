@@ -3,16 +3,18 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="generate_report.Listeners"/>
+    <listener class-name="listeners.AnnotationTransformer"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testScript.LoginTest">
+      <class name="testScript.MgePagesSearchAndDeleteTest">
         <methods>
+          <include name="driverQuitandClose"/>
+          <include name="verifyUserIsAbleTosearchAndDeletePage"/>
           <include name="initializeBrowser"/>
-          <include name="QuitAndClose"/>
-          <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"/>
         </methods>
-      </class> <!-- testScript.LoginTest -->
+      </class> <!-- testScript.MgePagesSearchAndDeleteTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

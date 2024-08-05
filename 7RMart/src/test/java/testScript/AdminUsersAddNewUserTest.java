@@ -10,12 +10,13 @@ import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AdminUsersAddNewUserPage;
+import pages.AdminUsersStatusPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 import utilities.RandomDataUtility;
 
 public class AdminUsersAddNewUserTest extends Base {
-	@Test
+	@Test(groups={"smoke","regression"})
 	public void verifyUserIsAbleToAddNewAdminUser() throws IOException
 	{
 		
@@ -33,20 +34,18 @@ public class AdminUsersAddNewUserTest extends Base {
 		
 		boolean is_admin_user_page_loaded =adminuseraddpage.isAdminUserPageDisplayed();
 		
-		
-		
 		adminuseraddpage.newAdminButtonClick();
 		
 		boolean is_search_button_visible =adminuseraddpage.isSearchButtonDisplayed();
 		
 		String firstname=RandomDataUtility.getFirstName();
 		String lastname=RandomDataUtility.getLastName();
-		String username1=firstname;
-		String password1=firstname+"."+lastname;
+		String username11=firstname;
+		String password11=firstname+"."+lastname;
 		
 		String usertype=ExcelUtility.getStringData(1, 2,Constants.ADD_USER_IN_ADMIN_USER_DATA);
 		
-		adminuseraddpage.addUsername(username1, password1, usertype);
+		
 		
 		boolean is_green_alert_visible=adminuseraddpage.isAlertForNewAdminSuccessDisplayed();
 		

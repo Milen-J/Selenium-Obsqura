@@ -22,61 +22,60 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import constants.Constants;
+import utilities.WaitUtility;
 
-public class Base{
-	
+public class Base
+{
 	public WebDriver driver;
 	public Properties prop;
 	public FileInputStream file;
-	
+
 	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	public void initializeBrowser(String browser) throws Exception
 	{
-		prop = new Properties();
-		file = new FileInputStream(Constants.CONFIGFILE);
+		prop=new Properties();
+		file=new FileInputStream(Constants.CONFIGFILE);
+		prop.load(file);
+		
 		if(browser.equalsIgnoreCase("chrome"))
-		{
-			driver = new ChromeDriver();
-		}
-		else if(browser.equalsIgnoreCase("firefox"))
-		{
-			driver=new FirefoxDriver();
-		}
+			{
+				driver=new ChromeDriver();
+			}
+		else if(browser.equalsIgnoreCase("Firefox"))
+			{
+				driver=new FirefoxDriver();
+			}
 		else if(browser.equalsIgnoreCase("Edge"))
-		{
-			driver = new EdgeDriver();
-		}
+			{
+				driver=new EdgeDriver();
+			}
 		else
-		{
-			throw new Exception("Browser is not correct.");
-		}
-		driver = new ChromeDriver();
-		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
-		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			{
+				throw new Exception("Browser is not correct");
+			}
+		
+		driver.get(prop.getProperty("url"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
 		driver.manage().window().maximize();
-		//driver.manage().deleteAllCookies();
-		
-		
-		
+	
 	}
 	@AfterMethod
-	public void QuitAndClose(ITestResult result) throws IOException
+	
+	public void driverQuitandClose(ITestResult result) throws IOException  
 	{
-		if(result.getStatus()== ITestResult.FAILURE)
+		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			takeScreenshots(result);
+			takesScreenshots(result);
 		}
-		//driver.close();
 		driver.quit();
-	}
-	public void takeScreenshots(ITestResult result) throws IOException
-	{
-		TakesScreenshot takesscreenshot = (TakesScreenshot) driver;
-		File screenshots = takesscreenshot.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshots, new File("./screenshots/"+result.getName()+".png"));
-		
+	
 	}
 	
+	public void takesScreenshots(ITestResult result) throws IOException
+	{
+		TakesScreenshot takescreenshot=(TakesScreenshot) driver;
+		File screenshots=takescreenshot.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshots, new File("./Screenshots/"+result.getName()+".png") );       
+	}
 }

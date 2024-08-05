@@ -5,11 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
 import utilities.WebElementUtilities;
 
-public class ContactUsUpdatePage {
+public class ContactUsUpdatePage
+{
 	WebDriver driver;
 	WebElementUtilities webelementutility = new WebElementUtilities();
+	PageUtility pageutility=new PageUtility();
+	
 	public ContactUsUpdatePage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -32,51 +36,51 @@ public class ContactUsUpdatePage {
 	{
 		moreinfoContact.click();
 	}
-	public boolean iscontactuspagedisplayed()
+	
+	public boolean isContactUsPageDisplayed()
 	{
-		return actioncontact.isDisplayed();
+		boolean iscontactuspagedisplayed=WebElementUtilities.isElementDisplayed(actioncontact);
+		return iscontactuspagedisplayed;
 	}
+		
 	public void contactactionclick()
 	{
 		actioncontact.click();
 		
 	}
-	public void contactphone(String phonevalue)
-	{
-		 actionphone.click();
-		 actionphone.clear();
-		 actionphone.sendKeys(phonevalue);
-	}
-	public void contactemail(String phonevalue)
-	{
-		 actionemail.click();
-		 actionemail.clear();
-		 actionemail.sendKeys(phonevalue);
-	}
-	public void contactaddress(String addressvalue)
-	{
-		actionaddress.click();
-		actionaddress.clear();
-		actionaddress.sendKeys(addressvalue);
-	}
-	public void contactdeliverytime(String deliveryvalue)
-	{
-		actiondeliverytime.click();
-		actiondeliverytime.clear();
-		actiondeliverytime.sendKeys(deliveryvalue);
-	}
-	public void contactdeliverycharge(String deliverychargevalue)
-	{
-		actiondeliverycharge.click();
-		actiondeliverycharge.clear();
-		actiondeliverycharge.sendKeys(deliverychargevalue);
-	}
-	public void contactupdate()
-	{
-		actionupdate.click();
-	}
+	
+	public void enterPhoneNumber(String phoneNumber) {
+        PageUtility.clearAndSendKeys(actionphone, phoneNumber);
+
+    }
+
+    public void enterEmail(String email) {
+        PageUtility.clearAndSendKeys(actionemail, email);
+
+    }
+    
+    public void enterAddress(String address) {
+        PageUtility.clearAndSendKeys(actionaddress, address);
+
+    }
+    
+    public void enterDeliveryTime(String deliveryTime) {
+        PageUtility.clearAndSendKeys(actiondeliverytime, deliveryTime);
+
+    }
+
+    public void enterDeliveryLimit(String deliveryLimit) {
+        PageUtility.clearAndSendKeys(actiondeliverycharge, deliveryLimit);
+
+    }
+
+    public void clickOnSubmitButton() {
+        PageUtility.clickElementByJS( driver, actionupdate);
+    }
+
 	public boolean isContactUpdateAlertDisplayed()
 	{
-		return contactusalert.isDisplayed();
+		boolean iscontactupdatealertdisplayed=WebElementUtilities.isElementDisplayed(contactusalert);
+		return 	iscontactupdatealertdisplayed;
 	}
 }

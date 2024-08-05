@@ -6,59 +6,66 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
 import utilities.WebElementUtilities;
 
-public class AdminUserSearchPage {
-	
-	WebDriver driver;
-	WebElementUtilities webelementutility = new WebElementUtilities();
-	public AdminUserSearchPage(WebDriver driver)
-	{
-		this.driver = driver;
-		PageFactory.initElements(driver,this);
-	}
 
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[2]/div/a")private WebElement adminmoreinfo ;
-	@FindBy(xpath="//a[@class = 'btn btn-rounded btn-primary']")private WebElement adminsearch ;
-	@FindBy(xpath="//*[@id=\"un\"]")private WebElement searchusername;
-	@FindBy(xpath="//select[@name='ut']")private WebElement usertype;
-	@FindBy(xpath="//button[@name='Search']")private WebElement searchbtn ;
-	@FindBy(xpath="//*[@id=\"srdiv\"]/div/div/div/div[2]/form/div/div[3]/a")private WebElement resetsearch;
-	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]")private WebElement result ;
-	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[2]") private WebElement resultusertype;
-	
-	
-	public void adminUserMoreInfo()
+	public class AdminUserSearchPage
 	{
-		adminmoreinfo.click();
+		  WebDriver driver;
+		  WebElementUtilities webelementutility = new WebElementUtilities();
+		  PageUtility pageutility=new PageUtility();
+
+		  public AdminUserSearchPage(WebDriver driver) {
+		  this.driver = driver;
+		  PageFactory.initElements(driver, this);
 	}
-	
-	public boolean isadminUsersPageDisplayed()
-	{
-		return adminsearch.isDisplayed();
-	}
-	
-	public void searchClick(String searchusernamevalue) 
-	{
-		adminsearch.click();
-		searchusername.click();
-		searchusername.sendKeys(searchusernamevalue);
-		
-		Select select = new Select(usertype);
-		select.selectByIndex(1);
-		
-		searchbtn.click();
-		
-		if(!searchusername.equals(result) && usertype.equals(resultusertype))
+		  
+
+		@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")private WebElement adminUsersBtn;
+		@FindBy(xpath="//h4[text()='Search Admin Users']")private WebElement adminUsersHeader ;
+		@FindBy(xpath = "//a[@onclick='click_button(2)']")private WebElement searchBtn;
+		@FindBy(xpath = "//input[@id='un']")private WebElement userNameField;
+		@FindBy(xpath = "//select[@id='ut']")private WebElement userTypeDropdown;
+		@FindBy(xpath = "//button[@value='sr']")private WebElement findUserBtn;
+
+		public void clickOnAdminUsersBtn() 
 		{
-			System.out.println("Not found");
-		
-			//resetsearch.click();
+			adminUsersBtn.click();	
 		}
+		    
+		public boolean isAdminUserHeaderDisplayed()
+		{
+			boolean isAdminUserHeaderAvailable=WebElementUtilities.isElementDisplayed(adminUsersHeader);
+			return isAdminUserHeaderAvailable;
+		}
+
+		public void clickOnSearchBtn()
+		{
+		   	searchBtn.click();	   
+		}
+
+		public void enterUserName(String userName) 
+		{
+		    PageUtility.clearAndSendKeys(userNameField, userName);
+		}
+
+		public void selectUserType(String userType)
+		{
+		    PageUtility.selectByValue(userTypeDropdown, userType);
+
+		}
+
+		public void clickOnFindUserBtn()
+		{
+		    	findUserBtn.click();	
+		}
+		  
 		
+			
 	}
 	
 	
 	
 	
-}
+

@@ -6,52 +6,65 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
 import utilities.WebElementUtilities;
 
-public class SubCategoryPage {
+public class SubCategoryPage 
+{
 	
 	WebDriver driver;
 	WebElementUtilities webelementutility = new WebElementUtilities();
+	PageUtility pageutility = new PageUtility();
+	
 	public SubCategoryPage(WebDriver driver)
 	{
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		
 	}
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[7]/div/a")private WebElement subcatmoreinfo;
-	@FindBy(xpath="//a[@onclick='click_button(1)']")private WebElement subnewbtn;
-	@FindBy(xpath="//select[@class='form-control selectpicker']") private WebElement categoryselect;
-	@FindBy(xpath="//input[@id='subcategory']")private WebElement subcategory;
-	@FindBy(xpath="//input[@id='main_img']")private WebElement subcatimage;
-	@FindBy(xpath="//button[@name='create']")private WebElement subcatsave;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement subcatalert;
 	
-	
-	
-	public void moreinfo()
-	{
-		subcatmoreinfo.click();
-	}
-	public boolean isListPageDisplayed()
-	{
-		return subnewbtn.isDisplayed();
-	}
-	public void addSubCategory(String subcategoryvalue)
-	{
-		subnewbtn.click();
-		Select select = new Select(categoryselect);
-		select.selectByVisibleText("Grocery");
-		subcategory.sendKeys(subcategoryvalue);
-		subcatsave.click();
+	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[7]/div/a")private WebElement subcategory;
+	@FindBy(xpath="//h1[text()='List Sub Categories']")private WebElement subcategoryheading;
+	@FindBy(xpath="//a[@onclick='click_button(1)']")private WebElement newbutton;
+	@FindBy(xpath="//h1[text()='Add Sub Category']")private WebElement titleaddsubcategory;
+	@FindBy(xpath="//select[@class='form-control selectpicker']")private WebElement categorydropdown;
+	@FindBy(xpath="//input[@name='subcategory']")private WebElement subcategorytextfield;
+	@FindBy(xpath="//button[@name='create']")private WebElement savebutton;
 		
-		if(subcategory.isDisplayed())
-		{
-			System.out.println("Item already exists.");
-		}
+	public void clickOnManageCategory()
+	{
+		subcategory.click();
 		
 	}
-	public boolean isSubCategoryAletDisplayed()
+	
+	public boolean isHeaderListSubCategoriesVisible()
 	{
-		return subcatalert.isDisplayed();
+		boolean isheaderlistsubcategoriesavailable=webelementutility.isElementDisplayed(subcategoryheading);
+		return isheaderlistsubcategoriesavailable;
 	}
-}
+	
+	public void clickOnNewInListSubCategory()
+	{
+		newbutton.click();
+	}
+
+	public boolean isHeaderAddSubCategoryVisible()
+	{
+		boolean isheaderaddsubcategoryavailable=webelementutility.isElementDisplayed(titleaddsubcategory);
+		return isheaderaddsubcategoryavailable;
+	}
+	
+	public void enterDataInAddSubcategoryWindow(String categorydropdownvalue,String subcategorytextfieldvalue)
+	{
+		pageutility.selectByValue(categorydropdown, categorydropdownvalue);
+		subcategorytextfield.sendKeys(subcategorytextfieldvalue);
+	}
+	
+	public void clickOnSaveButton()
+	{
+		savebutton.click();
+	
+	}
+
+
+	}

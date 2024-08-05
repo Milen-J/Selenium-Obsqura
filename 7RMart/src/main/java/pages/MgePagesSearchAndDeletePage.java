@@ -32,7 +32,8 @@ public class MgePagesSearchAndDeletePage {
 	}	
 	public boolean isListPageDisplayed()
 	{
-		return searchbutton.isDisplayed();
+		boolean is_list_page_displayed = WebElementUtilities.isElementDisplayed(searchbutton);
+		return is_list_page_displayed;
 		
 	}
 	public void searchTitle(String titlesearchvalue)
@@ -50,7 +51,9 @@ public class MgePagesSearchAndDeletePage {
 	}
 	public boolean isalertPageDisplayed()
 	{
-		return alertdisplay.isDisplayed();
+		boolean is_alert_page_displayed = WebElementUtilities.isElementDisplayed(alertdisplay);
+		return is_alert_page_displayed;
+		
 		
 	}
 }

@@ -11,7 +11,7 @@ import com.aventstack.extentreports.Status;
 
 import utilities.ExtendReportUtility;
 
-public class Listeners implements ITestListener//ITestListener is an interface - to customize the report
+public class Listeners implements ITestListener
 {
 	
 	ExtentTest test;

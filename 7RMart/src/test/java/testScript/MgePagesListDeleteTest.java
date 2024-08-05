@@ -2,31 +2,40 @@ package testScript;
 
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
+import constants.Constants;
+import constants.Messages;
 import pages.LoginPage;
+import pages.ManagePagesPage;
 import pages.MgePagesListDelete;
+import utilities.ExcelUtility;
 
-public class MgePagesListDeleteTest extends Base {
-	@Test
-	public void isUserAbleToDeletePageDirectly()
+public class MgePagesListDeleteTest extends Base
+{
+	@Test(groups={"smoke","regression","sanity"})
+	public void verifyTheUserIsAbleToEnterAndDeleteListProducts() throws IOException
 	{
-		String usernamevalue ="admin";
-		String passwordvalue = "admin";
 		
-		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(usernamevalue); 
+		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);
+		String passwordvalue=ExcelUtility.getStringData(1, 1,Constants.LOGIN_PAGE);
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.clickOnSignInButton();
 		
-		MgePagesListDelete mgepageslistdelete = new MgePagesListDelete(driver);
-		mgepageslistdelete.moreinfo();
-		mgepageslistdelete.isListPageDisplayed();
-		mgepageslistdelete.deletePage();
+		ManagePagesPage managepagenew=new ManagePagesPage(driver);
+		managepagenew.clickOnManagePageBtn();
 		
-		boolean isalertboxdisplayed = mgepageslistdelete.isAlertForDeletionDisplayed();
-		assertTrue(isalertboxdisplayed,"Alert box not displayed");
+		MgePagesListDelete managelistpages=new MgePagesListDelete(driver);
+		
+		boolean is_header_list_pages_loaded=managelistpages.isHeaderListPagesVisible();
+		managelistpages.clickOnDeleteInListPages();
+		
+		Assert.assertTrue(is_header_list_pages_loaded,Messages.HEADER_LIST_PAGES_IS_NOT_LOADED);
 	}
-
 }

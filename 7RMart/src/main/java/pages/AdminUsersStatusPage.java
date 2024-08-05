@@ -5,12 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
 import utilities.WebElementUtilities;
 
 public class AdminUsersStatusPage {
 	
 	WebDriver driver;
 	WebElementUtilities webelementutility = new WebElementUtilities();
+	PageUtility pageutility=new PageUtility();
 	
 	public AdminUsersStatusPage(WebDriver driver)
 	{
@@ -28,10 +30,13 @@ public class AdminUsersStatusPage {
 	{
 		adminmoreinfo.click();
 	}
+	
 	public boolean isAdminUsersPageDisplayed()
 	{
-		return adminsearch.isDisplayed();
+		boolean isAdminUserPageDisplaayed = WebElementUtilities.isElementDisplayed(adminsearch);
+		return isAdminUserPageDisplaayed;
 	}
+	
 	public void statusChange()
 	{
 		status.click();
@@ -39,7 +44,9 @@ public class AdminUsersStatusPage {
 	
 	public boolean isAlertStatusDisplayed()
 	{
-		return alertadminstatus.isDisplayed();
+		boolean isSuccesssAlertDisplayed=WebElementUtilities.isElementDisplayed(alertadminstatus);
+		return isSuccesssAlertDisplayed;
 	}
-
+	 
 }
+	

@@ -7,39 +7,32 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.WebElementUtilities;
 
-public class MgePagesListDelete {
+public class MgePagesListDelete 
+{
 	
 	WebDriver driver;
-	WebElementUtilities webelementutility = new WebElementUtilities();
+	
 	public MgePagesListDelete(WebDriver driver)
 	{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[1]/div/a")private WebElement moreinfo;
-	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")private WebElement searchbutton;
-	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]")private WebElement rowselect;
-	@FindBy(xpath="/html/body/div/div[1]/section/div[4]/div[2]/table/tbody/tr[3]/td[5]/a[4]")private WebElement alert;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertdisplay;
-	@FindBy(xpath="/html/body/div/div[1]/section/div[4]/div[2]/table/tbody/tr[1]/td[5]/a[2]")private WebElement trash;
-	public void moreinfo()
+	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")private WebElement headinglistpages;
+	@FindBy(xpath="//a[@onclick=\"return confirm('Do you want to delete this Page?')\"]")private WebElement deletebuttoninlistpages;
+	
+	public boolean isHeaderListPagesVisible()
 	{
-		moreinfo.click();
-	}	
-	public boolean isListPageDisplayed()
+		boolean is_header_list_pages_available=WebElementUtilities.isElementDisplayed(headinglistpages);
+		return is_header_list_pages_available;
+	} 
+	public void clickOnDeleteInListPages()
 	{
-		return searchbutton.isDisplayed();
+		
+		deletebuttoninlistpages.click();
+		driver.switchTo().alert().accept();
 		
 	}
-	public void deletePage()
-	{
-		rowselect.click();
-		trash.click();
-		driver.switchTo().alert().accept();
-	}
-	public boolean isAlertForDeletionDisplayed()
-	{
-		return alertdisplay.isDisplayed();
-	}
+}
 	
 }

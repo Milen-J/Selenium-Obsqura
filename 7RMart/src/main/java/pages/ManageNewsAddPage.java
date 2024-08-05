@@ -5,60 +5,62 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
 import utilities.WebElementUtilities;
 
 public class ManageNewsAddPage {
-	
-	WebDriver driver;
-	WebElementUtilities webelementutility = new WebElementUtilities();
-	public ManageNewsAddPage(WebDriver driver)
-	{
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
-	}
+	 WebDriver driver;
 
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[11]/div/a")private WebElement moreinfonews;
-	//@FindBy(xpath="/html/body/div/div[1]/section/div[1]/a[2]")private WebElement newssearch ;
-	@FindBy(xpath="//a[@onclick='click_button(1)']")private WebElement newnewsbtn;
-	@FindBy(xpath="//textarea[@id='news']")private WebElement newstext;
-	@FindBy(xpath="//button[@name='create']")private WebElement savenews;
-	@FindBy(xpath="//a[@class='btn btn-default btn-fix']")private WebElement cancelnews ;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertnewssuccess ;
-	@FindBy(xpath="/html/body/div/nav/ul[1]/li/a")private WebElement dashboardmenu;
-	@FindBy(xpath="/html/body/div/aside[1]/div/div[4]/div/div/nav/ul/li[4]/ul[4]/li/a/p")private WebElement mgenewsback;
-	
-	public void newsMoreInfo()
-	{
-		moreinfonews.click();
-	}
+	    public ManageNewsAddPage(WebDriver driver) 
+	    {
+	        this.driver = driver;
+	        PageFactory.initElements(driver, this);
+	    }
 
-	public boolean isNewsPageDisplayed()
-	{
-		return newnewsbtn.isDisplayed();
-	}
-	public void addNews()
-	{
-		newnewsbtn.click();
-		newstext.click();
-		newstext.sendKeys("Project finally started");
-		savenews.click();
-	}
-	/*public void backToNews()
-	{
-		
-		dashboardmenu.click();
-		mgenewsback.click();
-		
-		
-	}*/
-	public boolean newsAlertSuccess()
-	{
-		return alertnewssuccess.isDisplayed();
-	}
-	
-	
-	
-	
-	
-	
+	    @FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")private WebElement manageNewsBtn;
+		@FindBy(xpath="//h1[@class='m-0 text-dark']")private WebElement manageNewsHeader;
+	    @FindBy(xpath = "//a[@onclick='click_button(1)']")private WebElement addNewNewsBtn;
+		@FindBy(xpath="//h3[text()='Enter News Informations']")private WebElement enterNewsInformationHeader ;
+	    @FindBy(xpath = "//textarea[@id='news']")private WebElement newsTextArea;
+	    @FindBy(xpath = "//button[@type='submit']")private WebElement submitBtn;
+	    @FindBy(xpath = "//div[contains(@class,'alert-success')]")private WebElement successMessage;
+
+	    public void clickOnManageNewsBtn()
+	    {
+	    	manageNewsBtn.click();	   
+	    }
+	    
+	    public boolean isManageNewsHeaderDisplayed()
+		{
+			boolean isManageNewsHeaderAvailable=WebElementUtilities.isElementDisplayed(manageNewsHeader);
+			return isManageNewsHeaderAvailable;
+		}
+
+	    public void clickOnAddNewNewsBtn()
+	    {
+	    	addNewNewsBtn.click();	
+	    }
+	    
+	    public boolean isenterNewsInformationHeaderDisplayed()
+		{
+			boolean isEnterNewsInformationHeaderAvailabe=WebElementUtilities.isElementDisplayed(enterNewsInformationHeader);
+			return isEnterNewsInformationHeaderAvailabe;
+		}
+
+	    public void enterNews(String news)
+	    {
+	        PageUtility.sendKeys(newsTextArea, news);
+	    }
+
+	    public void clickOnSubmitBtn()
+	    {
+	    	submitBtn.click();	
+	    }
+
+	    public boolean isNewsAddedSuccessfully()
+	    {
+	    	boolean isAddNewsSuccessAlertDisplayed=WebElementUtilities.isElementDisplayed(successMessage);
+	    	return isAddNewsSuccessAlertDisplayed;	
+	    	
+	    }
 }

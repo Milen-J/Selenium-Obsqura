@@ -8,6 +8,7 @@ public class DataProviders {
 	public Object[][] verifyUserCredentialsData()//multidimensional array
 	{
 		Object data[][]= new Object[3][2];
+		
 		data[0][0]="DDDD";
 		data[0][1]="admin";
 		

@@ -8,21 +8,24 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.WebElementUtilities;
 
-public class LoginPage {
+public class LoginPage 
+{
 	
 	WebDriver driver;
 	
 	WebElementUtilities webelementutility = new WebElementUtilities();
+	
 	public LoginPage(WebDriver driver)
 	{
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
+	
 	@FindBy(xpath="//input[@name='username']")private WebElement username;
 	@FindBy(xpath="//input[@name='password']")private WebElement password;
 	@FindBy(xpath="//button[text()='Sign In']")private WebElement signIn;
 	@FindBy(xpath="//p[text()='Dashboard']")private WebElement dashboardvalue;
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement redalert;
+	@FindBy(xpath="//h5[text()=\" Alert!\"]")private WebElement alert;
 	
 	
 	public void enterUserNameOnUserNameField(String usernamevalue)
@@ -39,17 +42,15 @@ public class LoginPage {
 		signIn.click();
 	}
 	
-	
-	public boolean isHomePageLoaded()
+	public boolean isDashboardVisible()
 	{
-		boolean ishomepagedisplayed = webelementutility.isElementDisplayed(dashboardvalue);//calling isdisplayed.
-		return ishomepagedisplayed; 
-		
+		boolean isdashboardavailable=webelementutility.isElementDisplayed(dashboardvalue);
+		return isdashboardavailable;
 	}
-	/*public boolean isRedAlertDisplayed()
+	public boolean isAlertboxVisible()
 	{
-		boolean isredalertdisplayed = webelementutility.isElementDisplayed(redalert);
-		return redalert.isDisplayed();
-	}*/
+		boolean alertavailable=webelementutility.isElementDisplayed(alert);
+		return alertavailable;
+	}
 }
 

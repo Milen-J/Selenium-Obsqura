@@ -1,9 +1,9 @@
-<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.obsqura</groupId>
   <artifactId>7Rmart</artifactId>
   <version>0.0.1-SNAPSHOT</version>
- <build>
+  <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -28,7 +28,7 @@
         </plugins>
     </build>
    <dependencies>
- <dependency>
+	  <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
     <version>4.18.1</version>
@@ -53,7 +53,7 @@
 </dependency>
 <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
 <dependency>
- <groupId>com.github.javafaker</groupId>
+    <groupId>com.github.javafaker</groupId>
     <artifactId>javafaker</artifactId>
     <version>1.0.2</version>
 </dependency>
@@ -67,8 +67,8 @@
         <artifactId>lombok</artifactId>
         <version>1.18.22</version>
       </dependency>
+      
 
-
-
-	 </dependencies>
+    
+   </dependencies>
 </project>
